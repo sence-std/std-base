@@ -10,7 +10,28 @@ package com.std.base; /**
 
 /**
  *
- * <p>中断线程</p>
+ * <p>
+ *  学习线程在runable状态时候中断对线程会有什么影响
+ *	结果，线程中断只是一个标识，线程依旧往下执行直到结束完run方法
+ *
+ *  在Core Java中有这样一句话："没有任何语言方面的需求要求一个被中断的程序应该终止。中断一个线程只是为了引起该线程的注意，被中断线程可以决定如何应对中断 "
+ *  这说明: interrupt中断的是线程的某一部分业务逻辑，前提是线程需要检查自己的中断状态(isInterrupted())。
+ *  //corejava Interrupted的经典使用代码
+ *	 public void run(){
+ *		 try{
+ *			 ....
+ *			 while(!Thread.currentThread().isInterrupted()&& more work to do){
+ *			 // do more work;
+ *		 }
+ *	 }catch(InterruptedException e){
+ *			 // thread was interrupted during sleep or wait
+ *		 }
+ *		 finally{
+ *			 // cleanup, if required
+ *		 }
+ *	 }
+ *	线程中断是指线程在runable状态时，才会中断， 没有占用CPU运行的线程是不可能给自己的中断状态置位的。这可能会产生一个InterruptedException异常。
+ * </p>
  *
  * <PRE>
  * <BR>	修改记录
@@ -35,9 +56,10 @@ public class WorkThread implements Runnable {
 	 *
 	 * @see     Thread#run()
 	 */
-	@Override public void run () {
+	@Override
+	public void run () {
 		while(true){
-			if(Thread.interrupted()){
+			if(Thread.currentThread().isInterrupted()){
 				System.out.println("Someone interrupted me.");
 			}else{
 				System.out.println("Going...");
@@ -48,5 +70,13 @@ public class WorkThread implements Runnable {
 				// 此处用这种方法空转1秒
 			}
 		}
+	}
+
+	public static void main (String[] args) throws InterruptedException {
+		WorkThread worker = new WorkThread();
+		Thread thread = new Thread(worker);
+		thread.start();
+		Thread.sleep(1000);
+		thread.stop();
 	}
 }

@@ -11,7 +11,10 @@ package com.std.base;
 
 /**
  *
- * <p>TODO</p>
+ * <p>
+ *  学习线程在block状态时候中断对线程会有什么影响
+ *	结果，线程中断继续执行完run方法
+ * </p>
  *
  * <PRE>
  * <BR>	修改记录

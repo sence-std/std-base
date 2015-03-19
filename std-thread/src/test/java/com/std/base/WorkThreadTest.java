@@ -32,7 +32,7 @@ public class WorkThreadTest {
 		WorkThread worker = new WorkThread();
 		Thread thread = new Thread(worker);
 		thread.start();
-		Thread.sleep(2000);
+		Thread.sleep(10);
 		thread.interrupt();
 	}
 
