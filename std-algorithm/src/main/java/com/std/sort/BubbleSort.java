@@ -78,12 +78,9 @@ public class BubbleSort {
     public static void main(String[] args) {
         int[] array = {3,4,2,1,6,8,5,9,7,10};
         BubbleSort bubbleSort = new BubbleSort();
-      //  int[] arr = bubbleSort.doSortDesc(array);
+        int[] arr1 = bubbleSort.doSortDesc(array);
+        int[] arr2 = bubbleSort.doSortAsc(array);
 
-        int[] arr = bubbleSort.doSortAsc(array);
-//        for(int i=0;i<arr.length;i++){
-//            System.out.print(arr[i]+",");
-//        }
     }
 
 }

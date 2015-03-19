@@ -24,4 +24,6 @@ package com.std.sort;
  * @version 1.0
  */
 public class InsertSort {
+
+
 }
