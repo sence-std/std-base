@@ -59,7 +59,9 @@ public class WorkThread implements Runnable {
 	@Override
 	public void run () {
 		while(true){
-			if(Thread.currentThread().isInterrupted()){
+			//Thread.currentThread().isInterrupted() 不重置中断状态
+			//Thread.interrupted() 重置中断状态为false
+			if(Thread.interrupted()){
 				System.out.println("Someone interrupted me.");
 			}else{
 				System.out.println("Going...");
@@ -77,6 +79,6 @@ public class WorkThread implements Runnable {
 		Thread thread = new Thread(worker);
 		thread.start();
 		Thread.sleep(1000);
-		thread.stop();
+		thread.interrupt();
 	}
 }
