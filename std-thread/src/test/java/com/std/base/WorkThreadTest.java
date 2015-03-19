@@ -47,7 +47,7 @@ public class WorkThreadTest {
 
 	@Test
 	public void testWorker() throws InterruptedException {
-		ＷorkerTaskThread worker = new ＷorkerTaskThread();
+		WorkerTaskThread worker = new WorkerTaskThread();
 		worker.runTask("task 1 ...");
 		Thread thread = new Thread(worker);
 		thread.start();

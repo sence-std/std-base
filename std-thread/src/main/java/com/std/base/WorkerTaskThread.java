@@ -23,7 +23,7 @@ package com.std.base;
  * @since 1.0
  * @version 1.0
  */
-public class ＷorkerTaskThread implements Runnable{
+public class WorkerTaskThread implements Runnable{
 
 	/***
 	 * 任务
