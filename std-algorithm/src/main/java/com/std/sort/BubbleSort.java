@@ -9,6 +9,8 @@
  */
 package com.std.sort;
 
+import com.std.util.ArrayUtil;
+
 /**
  *
  * <p>冒泡排序算法</p>
@@ -39,19 +41,13 @@ public class BubbleSort {
                     t[j+1] = temp;
                 }
             }
-            for(int k=0;k<t.length;k++){
-                System.out.print(t[k]);
-                if(k != t.length-1){
-                    System.out.print(",");
-                }
-            }
-            System.out.println();
+			ArrayUtil.printIntArray(t,",");
         }
         return t;
 	}
 
     /**
-     * 排序 升序
+     * 排序 升序 时间复杂度O(n^2)
      * @param t
      * @return
      */
@@ -64,23 +60,10 @@ public class BubbleSort {
                     t[j+1] = temp;
                 }
             }
-            for(int k=0;k<t.length;k++){
-                System.out.print(t[k]);
-                if(k != t.length-1){
-                    System.out.print(",");
-                }
-            }
-            System.out.println();
+			ArrayUtil.printIntArray(t,",");
         }
         return t;
     }
 
-    public static void main(String[] args) {
-        int[] array = {3,4,2,1,6,8,5,9,7,10};
-        BubbleSort bubbleSort = new BubbleSort();
-        int[] arr1 = bubbleSort.doSortDesc(array);
-        int[] arr2 = bubbleSort.doSortAsc(array);
-
-    }
 
 }
