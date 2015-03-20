@@ -36,5 +36,4 @@ public class SingletonTest {
 		Assert.assertEquals(singleton,singleton1);
 	}
 
-
 }
