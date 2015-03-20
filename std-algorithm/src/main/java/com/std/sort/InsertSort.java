@@ -9,6 +9,8 @@
  */
 package com.std.sort;
 
+import com.std.util.ArrayUtil;
+
 /**
  *
  * <p>插入排序算法</p>
@@ -25,5 +27,47 @@ package com.std.sort;
  */
 public class InsertSort {
 
+	/**
+	 * 插入排序升序
+	 */
+	public void doSortAsc(int[] arr){
+		for(int i=0;i<arr.length-1;i++){
+			int index = i+1;
+			while(index>0){
+				if(arr[index-1]>arr[index]){
+					int temp = arr[index-1];
+					arr[index-1] = arr[index];
+					arr[index] = temp;
+					index--;
+					continue;
+				}else{
+					break;
+				}
+			}
+			ArrayUtil.printIntArray(arr,",");
+		}
+	}
+
+	/**
+	 * 插入排序 降序
+	 * @param arr
+	 */
+	public void doSortDesc(int[] arr){
+		for(int i=0;i<arr.length-1;i++){
+			int index = i+1;
+			while(index>0){
+				if(arr[index-1]<arr[index]){
+					int temp = arr[index-1];
+					arr[index-1] = arr[index];
+					arr[index] = temp;
+					index--;
+					continue;
+				}else{
+					break;
+				}
+			}
+			ArrayUtil.printIntArray(arr,",");
+		}
+	}
 
 }
