@@ -9,6 +9,8 @@
  */
 package com.std.sort;
 
+import com.std.util.ArrayUtil;
+
 /**
  *
  * <p>快速排序</p>
@@ -26,6 +28,54 @@ package com.std.sort;
 public class QuickSort {
 
 
+	private int[] arr = null;
 
+	public QuickSort (int[] arr) {
+		this.arr = arr;
+	}
+	/**
+	 * 快速排序
+	 */
+	public void quickSort(){
+		reQuickSort(0,arr.length-1);
+	}
+
+	private void reQuickSort(int left,int right){
+		if(right-left<=0){
+			return;
+		}else {
+			int poivt = this.arr[right];
+			int partition = paritionArr(left, right, poivt);
+			ArrayUtil.printIntArray(arr, ",");
+			reQuickSort(left, partition - 1);
+			reQuickSort(partition + 1, right);
+		}
+	}
+
+	private int paritionArr (int left, int right, int poivt) {
+		int leftPar = left-1;
+		int rightPar = right;
+		while(true){
+			while(arr[++leftPar]<poivt){
+
+			}
+			while(arr[--rightPar]>poivt && rightPar>0){
+
+			}
+			if(leftPar>=rightPar){
+				break;
+			}else{
+				swap(leftPar,rightPar);
+			}
+		}
+		swap(leftPar,right);
+		return leftPar;
+	}
+
+	private void swap(int index1,int index2){
+		int temp = arr[index1];
+		arr[index1] = arr[index2];
+		arr[index2] = temp;
+	}
 
 }
