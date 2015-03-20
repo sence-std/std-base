@@ -45,9 +45,12 @@ public class QuickSort {
 			return;
 		}else {
 			int poivt = this.arr[right];
+			//分开
 			int partition = paritionArr(left, right, poivt);
 			ArrayUtil.printIntArray(arr, ",");
+			//排序左侧
 			reQuickSort(left, partition - 1);
+			//排序右侧
 			reQuickSort(partition + 1, right);
 		}
 	}
