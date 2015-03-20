@@ -12,6 +12,7 @@
         <module>std-thread</module>
         <module>std-classsloader</module>
         <module>untitled</module>
+        <module>designpattern</module>
     </modules>
 
     <properties>
