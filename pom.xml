@@ -11,8 +11,8 @@
     <modules>
         <module>std-thread</module>
         <module>std-classsloader</module>
-        <module>untitled</module>
-        <module>designpattern</module>
+        <module>std-algorithm</module>
+        <module>std-designpattern</module>
     </modules>
 
     <properties>
