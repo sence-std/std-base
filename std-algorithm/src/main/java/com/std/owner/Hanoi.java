@@ -25,7 +25,6 @@ package com.std.owner;
  */
 public class Hanoi {
 
-	int i=0;
 	/**
 	 *
 	 * @param diskNum
@@ -45,14 +44,17 @@ public class Hanoi {
 		if(diskN==1){
 			System.out.println("diskN ["+diskN+"] from [" + from + "] to ["+to+"]");
 		}else{
+			//将小的移到中间过渡塔座上
 			doTowers(diskN-1,from,to,inter);
+			//将最大的移动到目的塔座
 			System.out.println("diskN [" + diskN + "] from [" + from + "] to [" + to + "]");
+			//将小的从中间塔座移动到目的塔座
 			doTowers(diskN - 1, inter, from, to);
 		}
 	}
 
 	public static void main (String[] args) {
-		Hanoi hanoi = new Hanoi(3);
+		new Hanoi(4);
 	}
 
 }
