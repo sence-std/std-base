@@ -44,7 +44,7 @@ public class ShellSort {
 					inner -= h;
 				}
 				arr[inner] = temp;
-				ArrayUtil.printIntArray(arr, ",");
+				ArrayUtil.printArray(arr, ",");
 			}
 			h=(h-1)/3;
 		}

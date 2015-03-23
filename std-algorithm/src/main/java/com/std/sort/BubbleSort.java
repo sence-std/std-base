@@ -41,7 +41,7 @@ public class BubbleSort {
                     t[j+1] = temp;
                 }
             }
-			ArrayUtil.printIntArray(t,",");
+			ArrayUtil.printArray(t,",");
         }
         return t;
 	}
@@ -60,7 +60,7 @@ public class BubbleSort {
                     t[j+1] = temp;
                 }
             }
-			ArrayUtil.printIntArray(t,",");
+			ArrayUtil.printArray(t,",");
         }
         return t;
     }

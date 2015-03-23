@@ -47,7 +47,7 @@ public class QuickSort {
 			int poivt = this.arr[right];
 			//分开
 			int partition = paritionArr(left, right, poivt);
-			ArrayUtil.printIntArray(arr, ",");
+			ArrayUtil.printArray(arr, ",");
 			//排序左侧
 			reQuickSort(left, partition - 1);
 			//排序右侧

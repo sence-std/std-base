@@ -44,7 +44,7 @@ public class InsertSort {
 					break;
 				}
 			}
-			ArrayUtil.printIntArray(arr,",");
+			ArrayUtil.printArray(arr,",");
 		}
 	}
 
@@ -66,7 +66,7 @@ public class InsertSort {
 					break;
 				}
 			}
-			ArrayUtil.printIntArray(arr,",");
+			ArrayUtil.printArray(arr,",");
 		}
 	}
 

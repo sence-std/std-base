@@ -28,7 +28,7 @@ public class ArrayUtil {
 	/**
 	 * 打印数据
 	 */
-	public static void printIntArray(int[] arr,String sep){
+	public static void printArray(int[] arr,String sep){
 		for(int k=0;k<arr.length;k++){
 			System.out.print(arr[k]);
 			if(k != arr.length-1){
@@ -42,7 +42,7 @@ public class ArrayUtil {
 	/**
 	 * 打印数据
 	 */
-	public static void printCharArray(char[] arr,String sep){
+	public static void printArray(char[] arr,String sep){
 		for(int k=0;k<arr.length;k++){
 			System.out.print(arr[k]);
 			if(k != arr.length-1){

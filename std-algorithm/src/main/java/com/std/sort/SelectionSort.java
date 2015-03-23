@@ -44,7 +44,7 @@ public class SelectionSort {
 			int temp = arr[i];
 			arr[i] = arr[tempIndex];
 			arr[tempIndex] = temp;
-			ArrayUtil.printIntArray(arr,",");
+			ArrayUtil.printArray(arr,",");
 		}
 	}
 
@@ -65,7 +65,7 @@ public class SelectionSort {
 			int temp = arr[i];
 			arr[i] = arr[tempIndex];
 			arr[tempIndex] = temp;
-			ArrayUtil.printIntArray(arr,",");
+			ArrayUtil.printArray(arr,",");
 		}
 	}
 

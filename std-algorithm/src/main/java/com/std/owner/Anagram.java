@@ -45,7 +45,7 @@ public class Anagram {
 	 */
 	public void doAnagram(int length){
 		if(length == 1){
-			ArrayUtil.printCharArray(chs, "");
+			ArrayUtil.printArray(chs, "");
 			return;
 		}else{
 			for(int i=0;i<length;i++) {
