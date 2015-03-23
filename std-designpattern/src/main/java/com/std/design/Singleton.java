@@ -33,7 +33,7 @@ public class Singleton {
 	}
 
 	/**
-	 * 使用匿名内部类
+	 * 使用匿名内部类，在使用时候方生成实体
 	 */
 	private static class SingletonInner{
 		private static final Singleton singleton = new Singleton();
