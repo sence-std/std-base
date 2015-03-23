@@ -32,6 +32,9 @@ public class Singleton {
 
 	}
 
+	/**
+	 * 使用匿名内部类
+	 */
 	private static class SingletonInner{
 		private static final Singleton singleton = new Singleton();
 	}
