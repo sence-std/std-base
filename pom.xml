@@ -10,7 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>std-thread</module>
-        <module>std-classsloader</module>
+        <module>std-classloader</module>
         <module>std-algorithm</module>
         <module>std-designpattern</module>
     </modules>
