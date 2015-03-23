@@ -39,6 +39,19 @@ public class ArrayUtil {
 
 	}
 
+	/**
+	 * 打印数据
+	 */
+	public static void printCharArray(char[] arr,String sep){
+		for(int k=0;k<arr.length;k++){
+			System.out.print(arr[k]);
+			if(k != arr.length-1){
+				System.out.print(sep);
+			}
+		}
+		System.out.println();
+
+	}
 
 
 }
