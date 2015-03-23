@@ -13,7 +13,7 @@ package com.std.base;
  *
  * <p>
  *  学习线程在block状态时候中断对线程会有什么影响
- *	结果，线程中断继续执行完run方法
+ *	结果，线程中断继续执行完run方法 详细见WorkThread 头注释
  * </p>
  *
  * <PRE>
@@ -35,6 +35,7 @@ public class WorkThreadBlock implements Runnable {
 	 * <p>
 	 * The general contract of the method <code>run</code> is that it may
 	 * take any action whatsoever.
+	 *
 	 *
 	 * @see     Thread#run()
 	 */

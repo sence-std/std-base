@@ -11,7 +11,7 @@ package com.std.base;
 
 /**
  *
- * <p>任务</p>
+ * <p>任务 详细见 WorkThread 头注释</p>
  *
  * <PRE>
  * <BR>	修改记录
