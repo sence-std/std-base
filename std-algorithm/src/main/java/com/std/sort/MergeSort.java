@@ -58,7 +58,6 @@ public class MergeSort {
         int j = 0;
         int lowerPar = lowerBound;
 		int mid = partition-1;
-        int n = upBound-lowerBound+1;
         //分割后是从右边的第一个下标开始的
         while(lowerBound<=mid && partition<=upBound ){
             if(this.arr[lowerBound]<this.arr[partition]){
@@ -74,7 +73,7 @@ public class MergeSort {
             arr[j++] = this.arr[partition++];
         }
 
-        for(int i=0;i<n;i++){
+        for(int i=0;i<j;i++){
             this.arr[lowerPar++] = arr[i];
         }
 	}
