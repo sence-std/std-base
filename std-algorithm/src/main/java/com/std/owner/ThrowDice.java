@@ -41,6 +41,7 @@ public class ThrowDice {
 	public static int dpThorwDice(int thN,int sum){
 
 		if(thN == 1 ) {
+			//递归得到的结果 如果点数在1-6之间 则为有效投掷，返回投掷有效1次
 			if( 1<=sum && sum<=6 ) {
 				return 1;
 			}else {
