@@ -39,6 +39,13 @@ public class ArrayUtil {
 
 	}
 
+    public static int sumArray(int[] arr,int st,int end){
+        if(st==end){
+            return arr[end];
+        }
+        return arr[st]+sumArray(arr,st+1,end);
+    }
+
 	/**
 	 * 打印数据
 	 */
@@ -53,5 +60,8 @@ public class ArrayUtil {
 
 	}
 
-
+    public static void main(String[] args) {
+        int[] array = {3,4,2,1,6,8,5,9,7,10};
+        System.out.println(sumArray(array,0,3));
+    }
 }
