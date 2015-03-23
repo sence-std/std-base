@@ -22,11 +22,10 @@ package com.std.base; /**
  *			 ....
  *			 while(!Thread.currentThread().isInterrupted()&& more work to do){
  *			 // do more work;
- *		 }
- *	 }catch(InterruptedException e){
+ *		 	 }
+ *	 	 }catch(InterruptedException e){
  *			 // thread was interrupted during sleep or wait
- *		 }
- *		 finally{
+ *		 }finally{
  *			 // cleanup, if required
  *		 }
  *	 }
