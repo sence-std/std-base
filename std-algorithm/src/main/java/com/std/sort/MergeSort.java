@@ -40,7 +40,7 @@ public class MergeSort {
 		this.arr = arrs;
 		int[] ws = new int[arrs.length];
 		doMergeSort(ws,0,arr.length-1);
-		//ArrayUtil.printArray(ws, ",");
+		ArrayUtil.printArray(this.arr, ",");
 	}
 
 	public void doMergeSort(int[] arr,int lowerBound,int upBound){
@@ -49,38 +49,34 @@ public class MergeSort {
 		}
 		int partition = (int)Math.ceil((upBound+lowerBound)/2*1.0);
 		doMergeSort(arr,lowerBound,partition);
-		ArrayUtil.printArray(arr,",");
 		doMergeSort(arr,partition+1,upBound);
-		merge(arr,lowerBound,partition,upBound);
+        //此处必须partition+1 因为0-9时进行右边排序是从6开始的
+		merge(arr,lowerBound,partition+1,upBound);
 	}
 
 	private void merge (int[] arr ,int lowerBound,int partition,int upBound) {
-		int li = lowerBound;
-		int ri = partition;
-		for(int i=0;i<upBound-lowerBound;i++){
-			if(li == partition && ri < upBound){
-				arr[i] = this.arr[ri];
-				ri++;
-				continue;
-			}
-			if(ri == upBound && li < partition){
-				arr[i] = this.arr[li];
-				ri++;
-				continue;
-			}
-			if(ri < partition && li < upBound) {
-				if (this.arr[li] <=this.arr[ri]) {
-					arr[i] = this.arr[li];
-					li++;
-				} else {
-					arr[i] = this.arr[ri];
-					ri++;
-				}
-			}
-		}
+        int j = 0;
+        int lowerPar = lowerBound;
+		int mid = partition-1;
+        int n = upBound-lowerBound+1;
+        //分割后是从右边的第一个下标开始的
+        while(lowerBound<=mid && partition<=upBound ){
+            if(this.arr[lowerBound]<this.arr[partition]){
+                arr[j++] = this.arr[lowerBound++];
+            }else{
+                arr[j++]=this.arr[partition++];
+            }
+        }
+        while(lowerBound<=mid){
+            arr[j++] = this.arr[lowerBound++];
+        }
+        while(partition<=upBound){
+            arr[j++] = this.arr[partition++];
+        }
+
+        for(int i=0;i<n;i++){
+            this.arr[lowerPar++] = arr[i];
+        }
 	}
 
-	public static void main (String[] args) {
-		System.out.print(Math.ceil((1 - 0) * 1.0 / 2 * 1.0));
-	}
 }
