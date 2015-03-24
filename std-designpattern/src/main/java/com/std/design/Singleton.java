@@ -9,6 +9,8 @@
  */
 package com.std.design;
 
+import java.io.Serializable;
+
 /**
  *
  * <p>单例模式</p>
@@ -23,7 +25,7 @@ package com.std.design;
  * @since 1.0
  * @version 1.0
  */
-public class Singleton {
+public class Singleton implements Serializable{
 
 	/**
 	 * 构造私有化
@@ -31,7 +33,6 @@ public class Singleton {
 	private Singleton(){
 
 	}
-
 	/**
 	 * 使用匿名内部类，在使用时候方生成实体
 	 */
@@ -41,6 +42,10 @@ public class Singleton {
 
 	public static Singleton getInstance(){
 		return SingletonInner.singleton;
+	}
+
+	public Object readResolve(){
+		return getInstance();
 	}
 
 }
