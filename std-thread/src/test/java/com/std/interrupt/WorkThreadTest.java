@@ -7,7 +7,7 @@
  *
  * Copyright 2011-2015 Asura
  */
-package com.std.base;
+package com.std.interrupt;
 
 import org.junit.Test;
 
