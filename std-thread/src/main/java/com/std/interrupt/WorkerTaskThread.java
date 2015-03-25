@@ -1,20 +1,17 @@
 /**
- * @FileName:WorkThreadBlock
+ * @FileName:ＷorkerTaskThread
  * @Package: com.std.thread
  *
  * @author sence
- * @created 3/19/2015 10:18 AM
+ * @created 3/19/2015 10:33 AM
  *
  * Copyright 2011-2015 Asura
  */
-package com.std.base;
+package com.std.interrupt;
 
 /**
  *
- * <p>
- *  学习线程在block状态时候中断对线程会有什么影响
- *	结果，线程中断继续执行完run方法 详细见WorkThread 头注释
- * </p>
+ * <p>任务 详细见 WorkThread 头注释</p>
  *
  * <PRE>
  * <BR>	修改记录
@@ -26,7 +23,12 @@ package com.std.base;
  * @since 1.0
  * @version 1.0
  */
-public class WorkThreadBlock implements Runnable {
+public class WorkerTaskThread implements Runnable{
+
+	/***
+	 * 任务
+	 */
+	private String task;
 	/**
 	 * When an object implementing interface <code>Runnable</code> is used
 	 * to create a thread, starting the thread causes the object's
@@ -36,23 +38,30 @@ public class WorkThreadBlock implements Runnable {
 	 * The general contract of the method <code>run</code> is that it may
 	 * take any action whatsoever.
 	 *
-	 *
 	 * @see     Thread#run()
 	 */
 	@Override
 	public void run () {
-		System.out.println("Thread start...");
-		try {
-			Thread.sleep(10000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
+		long now = System.currentTimeMillis();
+		int i=0;
+		while(++i<10){
+			System.out.println(1);
+			// 为了避免Thread.sleep()而需要捕获InterruptedException而带来的理解上的困惑,
+			// 此处用这种方法空转1秒
 		}
-		//线程醒来之后继续执行
-		System.out.println("Thread end...");
+		System.out.println(task);
+	}
+
+	public String getTask () {
+		return task;
+	}
+
+	public void setTask (String task) {
+		this.task = task;
 	}
 
 
-	public void notifyThis(){
-		this.notify();
+	public void runTask(String task){
+		this.setTask(task);
 	}
 }

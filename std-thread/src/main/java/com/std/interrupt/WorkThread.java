@@ -1,4 +1,4 @@
-package com.std.base; /**
+package com.std.interrupt; /**
  * @FileName:WorkThread
  * @Package: PACKAGE_NAME
  *
