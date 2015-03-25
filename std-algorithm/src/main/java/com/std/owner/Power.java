@@ -16,13 +16,16 @@ public class Power {
      * @return
      */
     public int doPower(int x,int y){
+		if(y==0){
+			return 1;
+		}
         if(y==1){
             return x;
         }
-        if(y%2!=0){
-            return x*doPower(x*x, y / 2);
+        if((y & 0x1)==1){
+            return x*doPower(x*x, y >> 2);
         }else {
-            return doPower(x*x, y / 2);
+            return doPower(x*x, y >> 2);
         }
     }
 
