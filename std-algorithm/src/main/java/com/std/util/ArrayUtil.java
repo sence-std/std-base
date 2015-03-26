@@ -39,6 +39,20 @@ public class ArrayUtil {
 
 	}
 
+	/**
+	 * 打印数据
+	 */
+	public static void printArray(int[] arr,String sep,int start,int end){
+		for(int k=start;k<end;k++){
+			System.out.print(arr[k]);
+			if(k != arr.length-1){
+				System.out.print(sep);
+			}
+		}
+		System.out.println();
+
+	}
+
     public static int sumArray(int[] arr,int st,int end){
         if(st==end){
             return arr[end];
