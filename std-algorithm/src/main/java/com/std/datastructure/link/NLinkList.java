@@ -51,7 +51,7 @@ public class NLinkList<E> {
 		NLink<E> waitAdd = new NLink<>(e);
 		waitAdd.setNext(null);
 		//空链表结构
-		if(firstLink == null){
+		if(isEmpty()){
 			firstLink = waitAdd;
 		}else{
 			//如果不是空链表，添加到链表的最后
@@ -68,7 +68,7 @@ public class NLinkList<E> {
 	 */
 	public void remove(){
 		//空链表
-		if(firstLink == null) return;
+		if(isEmpty()) return;
 		//如果不是空链表，添加到链表的最后
 		NLink<E> sCurrent = null;
 		NLink<E> current = firstLink;
@@ -88,7 +88,7 @@ public class NLinkList<E> {
 	 * 删除链表头节点
 	 */
 	public void removeFirst(){
-		if(firstLink == null) return;
+		if(isEmpty()) return;
 		firstLink = firstLink.getNext();
 	}
 
@@ -106,7 +106,7 @@ public class NLinkList<E> {
 	 */
 	@Override
 	public String toString () {
-		if(firstLink == null) return null;
+		if(isEmpty()) return null;
 		NLink<E> current = firstLink;
 		StringBuffer sb = new StringBuffer();
 		while(current.getNext()!=null){
