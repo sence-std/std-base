@@ -1,4 +1,4 @@
-package com.std.owner;
+package com.std.recursion;
 
 /**
  * @ file_name Power
@@ -47,7 +47,7 @@ public class Power {
 		if((y & 0x1)==1){
 			return x * calPower(x * x, y >> 1);
 		}else {
-			return calPower(x*x,y >> 1);
+			return calPower(x * x, y >> 1);
 		}
 
 	}
