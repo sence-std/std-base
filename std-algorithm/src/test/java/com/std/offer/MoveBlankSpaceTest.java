@@ -38,8 +38,8 @@ public class MoveBlankSpaceTest {
 		Assert.assertEquals(null,str2);
 		String str3 = mbs.moveSpace(null);
 		Assert.assertEquals(null,str3);
-		String str = mbs.moveSpace("i am happy");
-		Assert.assertEquals("i%20am%20happy",str);
+		String str = mbs.moveSpace("i am happy ");
+		Assert.assertEquals("i%20am%20happy%20",str);
 	}
 
 }
