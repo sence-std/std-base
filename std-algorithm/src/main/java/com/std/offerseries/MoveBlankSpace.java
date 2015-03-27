@@ -32,7 +32,7 @@ public class MoveBlankSpace {
 	public String moveSpace(String str){
 		if(str == null || "".equals(str)) return null;
 		int spaceNum = 0;
-		for(int i=0;i<str.length()-1;i++){
+		for(int i=0;i<str.length();i++){
 			if(' ' == str.charAt(i)){
 				spaceNum+=1;
 			}

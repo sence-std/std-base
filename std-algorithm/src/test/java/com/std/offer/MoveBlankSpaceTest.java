@@ -32,6 +32,12 @@ public class MoveBlankSpaceTest {
 	@Test
 	public void test(){
 		MoveBlankSpace mbs = new MoveBlankSpace();
+		String str1 = mbs.moveSpace(" ");
+		Assert.assertEquals("%20",str1);
+		String str2 = mbs.moveSpace("");
+		Assert.assertEquals(null,str2);
+		String str3 = mbs.moveSpace(null);
+		Assert.assertEquals(null,str3);
 		String str = mbs.moveSpace("i am happy");
 		Assert.assertEquals("i%20am%20happy",str);
 	}
