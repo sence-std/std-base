@@ -33,9 +33,9 @@ public class FindInSortMatrix {
 	 * @param num
 	 * @return
 	 */
-	public boolean find(int[][] sortMatrix ,int num){
-		if(sortMatrix == null) return false;
-		if(sortMatrix[0][0] > num) return false;
+	public String find(int[][] sortMatrix ,int num){
+		if(sortMatrix == null) return null;
+		if(sortMatrix[0][0] > num) return null;
 		int cols = sortMatrix[0].length;
 		int rows = sortMatrix.length;
 		int _col = cols>>1;
@@ -44,7 +44,7 @@ public class FindInSortMatrix {
 				break;
 			}
 			if(sortMatrix[0][_col] == num){
-				return true;
+				return "0-"+_col;
 			}
 			if(sortMatrix[0][_col]> num) {
 				_col = (int)Math.floor(_col/2.0);
@@ -63,11 +63,11 @@ public class FindInSortMatrix {
 				continue;
 			}
 			if(sortMatrix[_rows][_col]==num){
-				return true;
+				return _rows+"-"+_col;
 			}
 
 		}
-		return false;
+		return null;
 	}
 
 
