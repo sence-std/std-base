@@ -52,13 +52,13 @@ public class BinaryTreeSearchTest {
 	public void test01(){
 		BinaryTree bt = new BinaryTree();
 		bt.add(16);
-		bt.add(8);
+		bt.add(7);
 		bt.add(9);
 		bt.add(4);
 		bt.add(3);
 		bt.add(10);
 		bt.add(6);
-		bt.add(12);
+		bt.add(11);
 		bt.add(2);
 		bt.add(20);
 		bt.add(25);
@@ -68,7 +68,7 @@ public class BinaryTreeSearchTest {
 		bt.add(22);
 		bt.add(32);
 		BinaryTreeSearch search = new BinaryTreeSearch();
-		search.searchSum(bt,43,null);
+		search.searchSum(bt,53,null);
 	}
 
 
