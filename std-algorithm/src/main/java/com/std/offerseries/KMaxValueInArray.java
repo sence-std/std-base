@@ -28,7 +28,56 @@ package com.std.offerseries;
  */
 public class KMaxValueInArray {
 
+	/**
+	 * 查找数组中第K大
+	 * @return
+	 */
+	public Integer findKMax(int[] array,int k){
+		if(array == null){
+			return null;
+		}
+		if(array.length < k || k<1){
+			return null;
+		}
+		int start = 0;
+		int end = array.length-1;
+		int index = partitionNum(array,start,end);
+		while(index != k-1){
+			if(index>k-1){
+				end = index-1;
+				index = partitionNum(array,start,end);
+			}else{
+				start = index + 1;
+				index = partitionNum(array,start,end);
+			}
+		}
+		return array[index];
+	}
 
+	private int partitionNum (int[] array,int start,int end) {
+		int partNum = array[end];
+		start = start - 1;
+		int rightPar = end;
+		while(true){
+			while(array[++start]<partNum && start<end){
 
+			}
+			while(array[--end]>partNum && end > 0){
+
+			}
+			if(start>=end){
+				break;
+			}
+			swap(array,start,end);
+		}
+		swap(array,start,rightPar);
+		return start;
+	}
+
+	private void swap (int[] array, int start, int end) {
+		int temp = array[start];
+		array[start] = array[end];
+		array[end] = temp;
+	}
 
 }
