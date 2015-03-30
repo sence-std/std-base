@@ -48,6 +48,28 @@ public class BinaryTreeSearchTest {
 		System.out.print(nLinkList);
 	}
 
+	@Test
+	public void test01(){
+		BinaryTree bt = new BinaryTree();
+		bt.add(16);
+		bt.add(8);
+		bt.add(9);
+		bt.add(4);
+		bt.add(3);
+		bt.add(10);
+		bt.add(6);
+		bt.add(12);
+		bt.add(2);
+		bt.add(20);
+		bt.add(25);
+		bt.add(17);
+		bt.add(28);
+		bt.add(19);
+		bt.add(22);
+		bt.add(32);
+		BinaryTreeSearch search = new BinaryTreeSearch();
+		search.searchSum(bt,43,null);
+	}
 
 
 }

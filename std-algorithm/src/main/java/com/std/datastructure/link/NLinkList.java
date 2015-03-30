@@ -105,6 +105,14 @@ public class NLinkList<E> {
 	}
 
 	/**
+	 *
+	 * @return
+	 */
+	public void clear(){
+		this.firstLink = null;
+	}
+
+	/**
 	 * 打印整个链表
 	 * @return
 	 */
