@@ -28,7 +28,13 @@ import com.std.datastructure.tree.BinaryTree;
  */
 public class BinaryTreeSearch {
 
-
+	/**
+	 * 二叉树节点搜索
+	 * @param bt
+	 * @param num
+	 * @param linkList
+	 * @return
+	 */
 	public NLinkList search(BinaryTree<Integer> bt,int num,NLinkList linkList){
 		if(linkList == null){
 			linkList = new NLinkList();
