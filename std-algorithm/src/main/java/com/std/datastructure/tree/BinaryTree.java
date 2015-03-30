@@ -111,4 +111,7 @@ public class BinaryTree<E extends Comparable> {
 		return rootNode;
 	}
 
+	public void setRootNode (Node<E> rootNode) {
+		this.rootNode = rootNode;
+	}
 }
