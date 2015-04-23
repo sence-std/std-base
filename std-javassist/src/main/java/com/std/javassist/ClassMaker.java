@@ -9,13 +9,7 @@
  */
 package com.std.javassist;
 
-import javassist.CannotCompileException;
-import javassist.ClassPool;
-import javassist.CtClass;
-import javassist.CtConstructor;
-import javassist.CtField;
-import javassist.CtNewMethod;
-import javassist.NotFoundException;
+import javassist.*;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -45,8 +39,9 @@ public class ClassMaker {
 			throws NotFoundException, CannotCompileException, IllegalAccessException, InstantiationException,
 			NoSuchMethodException, InvocationTargetException {
 		ClassPool classPool = new ClassPool();
+        classPool.insertClassPath(new ClassClassPath(ClassMaker.class));
 		CtClass ctClass = classPool.makeClass(className);
-		CtField ctField = new CtField(classPool.get("[Ljava.lang.String;"), "name", ctClass);
+        CtField ctField = new CtField(classPool.get("java.lang.String"), "name", ctClass);
 		//CtField ctField = new CtField(classPool.get("java.lang.String"), "name", ctClass);
 		ctField.setModifiers(Modifier.PRIVATE);
 		//添加这个属性，并提供初始化
@@ -58,7 +53,7 @@ public class ClassMaker {
 		//构造
 		CtConstructor ctConstructor = new CtConstructor(new CtClass[]{},ctClass);
 		StringBuffer stringBuffer = new StringBuffer();
-		stringBuffer.append("{\nthis.name=\"sence\"\n}");
+		stringBuffer.append("{\nthis.name=\"sence\";\n}");
 		ctConstructor.setBody(stringBuffer.toString());
 		ctClass.addConstructor(ctConstructor);
 		//调用class
