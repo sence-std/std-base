@@ -92,12 +92,24 @@ public class NLinkList<E> {
 		firstLink = firstLink.getNext();
 	}
 
+	public NLink<E> getFirstLink () {
+		return firstLink;
+	}
+
 	/**
 	 * 链表是否为空
 	 * @return
 	 */
 	public boolean isEmpty(){
 		return firstLink == null;
+	}
+
+	/**
+	 *
+	 * @return
+	 */
+	public void clear(){
+		this.firstLink = null;
 	}
 
 	/**

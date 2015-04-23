@@ -23,5 +23,44 @@ package com.std.datastructure.tree;
  * @since 1.0
  * @version 1.0
  */
-public class Node<E> {
+public class Node<E extends Comparable> {
+
+	private E e;
+
+	private BinaryTree<E> leftTree;
+
+	private BinaryTree<E> rightTree;
+
+
+	public Node(){
+
+	}
+
+	public Node(E e){
+		this.e = e;
+	}
+
+	public E getE () {
+		return e;
+	}
+
+	public void setE (E e) {
+		this.e = e;
+	}
+
+	public BinaryTree<E> getRightTree () {
+		return rightTree;
+	}
+
+	public void setRightTree (BinaryTree<E> rightTree) {
+		this.rightTree = rightTree;
+	}
+
+	public BinaryTree<E> getLeftTree () {
+		return leftTree;
+	}
+
+	public void setLeftTree (BinaryTree<E> leftTree) {
+		this.leftTree = leftTree;
+	}
 }
