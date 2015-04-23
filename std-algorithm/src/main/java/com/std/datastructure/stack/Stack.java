@@ -50,7 +50,7 @@ public class Stack<E> {
 	 */
 	public void push(E e){
 		if(isEmpty()){
-			list = new ArrayList<>();
+			list = new ArrayList<E>();
 		}
 		list.add(e);
 	}
