@@ -39,13 +39,15 @@ public class ClassMaker {
 			throws NotFoundException, CannotCompileException, IllegalAccessException, InstantiationException,
 			NoSuchMethodException, InvocationTargetException {
 		ClassPool classPool = new ClassPool();
+		//必须设置classpath否则找不到java.lang.String
         classPool.insertClassPath(new ClassClassPath(ClassMaker.class));
 		CtClass ctClass = classPool.makeClass(className);
         CtField ctField = new CtField(classPool.get("java.lang.String"), "name", ctClass);
+		//[Ljava.lang.String; //表示一维引用类型数组
 		//CtField ctField = new CtField(classPool.get("java.lang.String"), "name", ctClass);
 		ctField.setModifiers(Modifier.PRIVATE);
 		//添加这个属性，并提供初始化
-		ctClass.addField(ctField, CtField.Initializer.constant("default"));
+		ctClass.addField(ctField, CtField.Initializer.constant("hello"));
 		//set 方法
 		ctClass.addMethod(CtNewMethod.setter("setName",ctField));
 		//get方法
@@ -56,12 +58,16 @@ public class ClassMaker {
 		stringBuffer.append("{\nthis.name=\"sence\";\n}");
 		ctConstructor.setBody(stringBuffer.toString());
 		ctClass.addConstructor(ctConstructor);
+
+		//修改方法
+		CtMethod ctMethod = ctClass.getDeclaredMethod("getName");
+		ctMethod.insertBefore("System.out.print(\"start get name:\");");
 		//调用class
 		Class<?> clazz = ctClass.toClass();
 		Object o = clazz.newInstance();
 		Method method = o.getClass().getMethod("getName",new Class[]{});
 		Object name = method.invoke(o,new Object[]{});
-		System.out.print("invoke getName result:"+name);
+		System.out.print(name);
 	}
 
 
