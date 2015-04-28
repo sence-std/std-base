@@ -11,6 +11,7 @@ package com.std.javassist;
 
 import javassist.*;
 
+import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
@@ -36,8 +37,8 @@ public class ClassMaker {
 	 * @param className
 	 */
 	public void makeClass(String className)
-			throws NotFoundException, CannotCompileException, IllegalAccessException, InstantiationException,
-			NoSuchMethodException, InvocationTargetException {
+            throws NotFoundException, CannotCompileException, IllegalAccessException, InstantiationException,
+            NoSuchMethodException, InvocationTargetException, IOException {
 		ClassPool classPool = new ClassPool();
 		//必须设置classpath否则找不到java.lang.String
         classPool.insertClassPath(new ClassClassPath(ClassMaker.class));
@@ -64,6 +65,7 @@ public class ClassMaker {
 		ctMethod.insertBefore("System.out.print(\"start get name:\");");
 		//调用class
 		Class<?> clazz = ctClass.toClass();
+       // ctClass.writeFile("D:\\javassist");
 		Object o = clazz.newInstance();
 		Method method = o.getClass().getMethod("getName",new Class[]{});
 		Object name = method.invoke(o,new Object[]{});

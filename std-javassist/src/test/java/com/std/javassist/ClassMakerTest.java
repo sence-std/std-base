@@ -13,6 +13,7 @@ import javassist.CannotCompileException;
 import javassist.NotFoundException;
 import org.junit.Test;
 
+import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 
 /**
@@ -33,8 +34,8 @@ public class ClassMakerTest {
 
 	@Test
 	public void test()
-			throws IllegalAccessException, InvocationTargetException, InstantiationException, CannotCompileException,
-			NotFoundException, NoSuchMethodException {
+            throws IllegalAccessException, InvocationTargetException, InstantiationException, CannotCompileException,
+            NotFoundException, NoSuchMethodException, IOException {
 		ClassMaker maker = new ClassMaker();
 		maker.makeClass("com.std.javassist.HelloJavassist");
 	}
