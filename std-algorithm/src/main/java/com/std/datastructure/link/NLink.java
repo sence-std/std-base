@@ -56,6 +56,4 @@ public class NLink<E> implements Serializable {
 		this.next = next;
 	}
 
-
-
 }

@@ -35,7 +35,7 @@ public class NLinkList<E> {
 		if(e == null){
 			return ;
 		}
-		NLink<E> waitAdd = new NLink<>(e);
+		NLink<E> waitAdd = new NLink<E>(e);
 		waitAdd.setNext(firstLink);
 		firstLink = waitAdd;
 	}
@@ -48,7 +48,7 @@ public class NLinkList<E> {
 		if(e == null) {
 			return;
 		}
-		NLink<E> waitAdd = new NLink<>(e);
+		NLink<E> waitAdd = new NLink<E>(e);
 		waitAdd.setNext(null);
 		//空链表结构
 		if(isEmpty()){
