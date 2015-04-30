@@ -65,7 +65,7 @@ public class ClassMaker {
 		ctMethod.insertBefore("System.out.print(\"start get name:\");");
 		//调用class
 		Class<?> clazz = ctClass.toClass();
-       // ctClass.writeFile("D:\\javassist");
+        // ctClass.writeFile("D:\\javassist");
 		Object o = clazz.newInstance();
 		Method method = o.getClass().getMethod("getName",new Class[]{});
 		Object name = method.invoke(o,new Object[]{});
