@@ -29,53 +29,56 @@ import com.std.util.ArrayUtil;
  */
 public class MergeSort {
 
+	private int arr[];
 
-	private int[] arr;
-
+	public MergeSort(int arr[]){
+		this.arr = arr;
+	}
 	/**
-	 * 归并排序
-	 * @param arrs
+	 *
 	 */
-	public MergeSort(int[] arrs){
-		this.arr = arrs;
-		int[] ws = new int[arrs.length];
-		doMergeSort(ws,0,arr.length-1);
-		ArrayUtil.printArray(this.arr, ",");
+	public void doSort(){
+		int newarr[] = new int[arr.length];
+		doSort(newarr,0,arr.length-1);
 	}
 
-	public void doMergeSort(int[] arr,int lowerBound,int upBound){
-		if(lowerBound>=upBound){
+	public int[] getResult(){
+		return arr;
+	}
+
+	private void doSort(int[] newarr, int start, int end) {
+		if(start == end) {
 			return;
 		}
-		int partition = (int)Math.ceil((upBound+lowerBound)/2*1.0);
-		doMergeSort(arr,lowerBound,partition);
-		doMergeSort(arr,partition+1,upBound);
-        //此处必须partition+1 因为0-9时进行右边排序是从6开始的
-		merge(arr,lowerBound,partition+1,upBound);
+		int partition = (end + start) /2;
+		doSort(newarr,start,partition);
+		doSort(newarr,partition+1,end);
+		merge(newarr,start,partition,end);
 	}
 
-	private void merge (int[] arr ,int lowerBound,int partition,int upBound) {
-        int j = 0;
-        int lowerPar = lowerBound;
-		int mid = partition-1;
-        //分割后是从右边的第一个下标开始的
-        while(lowerBound<=mid && partition<=upBound ){
-            if(this.arr[lowerBound]<this.arr[partition]){
-                arr[j++] = this.arr[lowerBound++];
-            }else{
-                arr[j++]=this.arr[partition++];
-            }
-        }
-        while(lowerBound<=mid){
-            arr[j++] = this.arr[lowerBound++];
-        }
-        while(partition<=upBound){
-            arr[j++] = this.arr[partition++];
-        }
-
-        for(int i=0;i<j;i++){
-            this.arr[lowerPar++] = arr[i];
-        }
+	private void merge(int[] newarr, int start, int partition, int end) {
+		//开始合并
+		int j = 0;
+		int lower = start;
+		int upStart = partition+1;
+		while(lower<=partition && upStart<=end){
+			if(arr[lower]> arr[upStart]){
+				newarr[j++] = arr[upStart++];
+			}else{
+				newarr[j++] = arr[lower++];
+			}
+		}
+		while (lower<=partition){
+			newarr[j++] = arr[lower++];
+		}
+		while (upStart<=end){
+			newarr[j++] = arr[upStart++];
+		}
+		int k =0;
+		while(k<j){
+			arr[start++] = newarr[k++];
+		}
 	}
+
 
 }

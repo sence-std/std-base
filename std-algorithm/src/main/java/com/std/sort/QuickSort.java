@@ -1,15 +1,12 @@
 /**
  * @FileName:QuickSort
  * @Package: com.std.sort
- *
  * @author sence
  * @created 3/20/2015 11:41 AM
- *
+ * <p>
  * Copyright 2011-2015 Asura
  */
 package com.std.sort;
-
-import com.std.util.ArrayUtil;
 
 /**
  *
@@ -28,57 +25,61 @@ import com.std.util.ArrayUtil;
 public class QuickSort {
 
 
-	private int[] arr = null;
+    private int[] arr = null;
 
-	public QuickSort (int[] arr) {
-		this.arr = arr;
-	}
-	/**
-	 * 快速排序
-	 */
-	public void quickSort(){
-		reQuickSort(0,arr.length-1);
-	}
+    public QuickSort(int[] arr) {
+        this.arr = arr;
+    }
 
-	private void reQuickSort(int left,int right){
-		if(right-left<=0){
-			return;
-		}else {
-			int poivt = this.arr[right];
-			//分开
-			int partition = paritionArr(left, right, poivt);
-			ArrayUtil.printArray(arr, ",");
-			//排序左侧
-			reQuickSort(left, partition - 1);
-			//排序右侧
-			reQuickSort(partition + 1, right);
-		}
-	}
+    /**
+     * 快速排序
+     */
+    public void quickSort() {
+        reQuickSort(0, arr.length - 1);
+    }
 
-	private int paritionArr (int left, int right, int poivt) {
-		int leftPar = left-1;
-		int rightPar = right;
-		while(true){
-			while(arr[++leftPar]<poivt){
+    /**
+     * 快速排序
+     * @param left
+     * @param right
+     */
+    private void reQuickSort(int left, int right) {
+        if (left == right) {
+            return;
+        }
+        int partition = partitionArr(left, right);
+        if(partition > left) {
+            reQuickSort(left, partition - 1);
+        }
+        if(right>partition) {
+            reQuickSort(partition + 1, right);
+        }
+    }
 
-			}
-			while(arr[--rightPar]>poivt && rightPar>0){
+    private int partitionArr(int left, int right) {
+        int povit = arr[right];
+        int rightPtr = right;
+        int leftPtr = left - 1;
+        while (true) {
+            while (leftPtr < right && arr[++leftPtr] < povit) {
+            }
+            while (rightPtr > left && arr[--rightPtr] > povit) {
+            }
+            if (leftPtr >= rightPtr) {
+                break;
+            }
+            swap(leftPtr, rightPtr);
+        }
+        // 交换poivt
+        swap(leftPtr, right);
+        return leftPtr;
+    }
 
-			}
-			if(leftPar>=rightPar){
-				break;
-			}else{
-				swap(leftPar,rightPar);
-			}
-		}
-		swap(leftPar,right);
-		return leftPar;
-	}
+    private void swap(int i, int right) {
+        int a = arr[i];
+        arr[i] = arr[right];
+        arr[right] = a;
+    }
 
-	private void swap(int index1,int index2){
-		int temp = arr[index1];
-		arr[index1] = arr[index2];
-		arr[index2] = temp;
-	}
 
 }

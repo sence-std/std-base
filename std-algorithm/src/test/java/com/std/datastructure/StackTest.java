@@ -39,7 +39,7 @@ public class StackTest {
 		stack.push(1);
 		stack.push(2);
 		stack.push(3);
-		int i = (int)stack.pop();
+		int i = (Integer)stack.pop();
 		Assert.assertEquals(3,i);
 		Assert.assertEquals("[1, 2]",stack.toString());
 	}

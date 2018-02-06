@@ -9,6 +9,7 @@
  */
 package com.std.sort;
 
+import com.std.util.ArrayUtil;
 import org.junit.Test;
 
 /**
@@ -33,6 +34,7 @@ public class QuickSortTest {
 		int[] array = {3,4,2,1,8,5,9,7,10,6};
 		QuickSort quickSort = new QuickSort(array);
 		quickSort.quickSort();
+		ArrayUtil.printArray(array,",");
 	}
 
 }

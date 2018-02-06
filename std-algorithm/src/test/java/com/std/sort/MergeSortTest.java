@@ -9,6 +9,7 @@
  */
 package com.std.sort;
 
+import com.std.util.ArrayUtil;
 import org.junit.Test;
 
 /**
@@ -29,7 +30,9 @@ public class MergeSortTest {
 
 	@Test
 	public void test(){
-		int[] array = {3,4,8,2,6,1,5,10,9,7};
+		int[] array = {3,24,81,2,16,1,5,120,91,7};
 		MergeSort mergeSort = new MergeSort(array);
+		mergeSort.doSort();
+		ArrayUtil.printArray(array,",");
 	}
 }
