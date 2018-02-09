@@ -66,7 +66,7 @@ public class ClassMaker {
 		//调用class
 		Class<?> clazz = ctClass.toClass();
         // ctClass.writeFile("D:\\javassist");
-		Object o = clazz.newInstance();
+		Object o = clazz.getDeclaredConstructor().newInstance();
 		Method method = o.getClass().getMethod("getName",new Class[]{});
 		Object name = method.invoke(o,new Object[]{});
 		System.out.print(name);

@@ -29,7 +29,7 @@ public class StudentRunableTest {
         thread.setName("thread-2");
         thread.start();
         thread1.start();
-        Thread.sleep(100000);
+        Thread.sleep(1000);
         teacher.sayMorning();
 
     }
